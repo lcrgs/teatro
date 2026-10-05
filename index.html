@@ -98,7 +98,7 @@ footer{font-size:12px;color:var(--muted)}
     <div class="board" id="tomorrow"></div>
   </section>
 
-  <section class="block">
+  <section class="block" id="tbc-block">
     <h2 id="tbc-head"></h2>
     <p class="note" id="tbc-note"></p>
     <div class="board" id="tbc"></div>
@@ -111,41 +111,23 @@ footer{font-size:12px;color:var(--muted)}
 
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
-const DAY = "2026-10-04";
-const COMPILED = "2026-10-04 18:00";
+const DAY = "2026-10-05";
+const COMPILED = "2026-10-05 08:56";
 const SHOWS = [
-  {t:"10:30",d:90,title:"O Principezinho, o Novo Musical",venue:"Auditório Santa Joana Princesa",tag:{pt:"Família",en:"Family"},link:"https://www.ticketline.pt/evento/o-principezinho-o-novo-musical-107729"},
-  {t:"11:00",d:60,title:"Branca de Neve",venue:"Boutique da Cultura, Carnide",tag:{pt:"Família",en:"Family"},link:"https://www.viralagenda.com/pt/lisboa/performing-arts"},
-  {t:"13:00",d:120,title:"All's Well That Ends Well",venue:"Palacete Gomes Freire",tag:{pt:"Em inglês",en:"In English"},price:"14 €",last:true,link:"https://www.tickettailor.com/events/openairshakespeare/2268398"},
-  {t:"16:00",d:120,title:"Caminho do Céu",venue:"São Luiz Teatro Municipal",price:"12 €",link:"https://www.teatrosaoluiz.pt"},
-  {t:"16:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",price:"10–18 €",link:"https://www.tndm.pt/macbeth"},
-  {t:"16:00",d:105,title:"Come From Away",venue:"Cineteatro Capitólio, Parque Mayer",price:"25–35 €",last:true,link:"https://teatrovariedades-capitolio.pt/evento/come-from-away/"},
-  {t:"16:00",d:90,title:"Contos em Viagem: Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.teatromeridional.net"},
-  {t:"16:30",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade, Sala Carmen Dolores",price:"15–24 €",link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
-  {t:"17:00",d:90,title:"Liberdade, Mulher de Abril 2",venue:"Teatro Cinearte (A Barraca), Santos",last:true,link:"https://www.timeout.pt/lisboa/pt/teatro/liberdade-mulher-de-abril-2"},
-  {t:"17:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",link:"https://www.ticketline.pt/evento/superstar-105381"},
-  {t:"17:00",d:90,title:"Ensaio sobre a Lucidez",venue:"Chapitô, Castelo",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
-  {t:"17:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA, Av. da Liberdade",price:"20–30 €",link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"},
-  {t:"18:00",d:120,title:"All's Well That Ends Well",venue:"Palacete Gomes Freire",tag:{pt:"Em inglês",en:"In English"},price:"14 €",last:true,link:"https://www.tickettailor.com/events/openairshakespeare/2268398"},
-  {t:"18:00",d:100,title:"O Algoritmo",venue:"Soc. Filarmónica João Rodrigues Cordeiro, Rua da Fé 46",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"}
+  {t:"16:00",d:90,title:"A Alegre História de Portugal em 90 Min.",venue:"Teatro Bocage",price:"12 €",link:"https://www.ticketline.pt/evento/a-alegre-historia-de-portugal-em-90-min-89541"},
+  {t:"20:00",d:75,title:"Forward is not the only way",venue:"São Luiz Teatro Municipal, Sala Luis Miguel Cintra",tag:{pt:"Música, teatro e dança · Orquestra de Câmara Portuguesa",en:"Music, theatre and dance · Orquestra de Câmara Portuguesa"},link:"https://www.teatrosaoluiz.pt/"},
+  {t:"20:00",d:140,title:"Suzy Eddie Izzard: The Tragedy of Hamlet",venue:"Teatro Tivoli BBVA, Av. da Liberdade",price:"30–50 €",last:true,tag:{pt:"Em inglês · M/16",en:"In English · M/16"},link:"https://www.ticketline.pt/evento/suzy-eddie-izzard-the-tragedy-of-hamlet-107654"}
 ];
-const TBC = [
-  {title:"Rosaline, a Ex do Romeu",venue:"Casino Lisboa, Auditório dos Oceanos",last:true,link:"https://www.ticketline.pt/evento/rosaline-a-ex-do-romeu-106734"},
-  {title:"Ópera-Pimba! O Primeiro Musical no Gelo Derretido",venue:"Teatro da Comuna, Campolide",last:true,link:"https://www.timeout.pt/lisboa/pt/teatro/opera-pimba-o-primeiro-musical-no-gelo-derretido"},
-  {title:"Uma Casa, com Certeza",venue:"Teatro da Trindade, Estúdio",link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-  {title:"Pura Loucura",venue:"Teatro Maria Matos",link:"https://www.ticketline.pt/evento/pura-loucura-106101"},
-  {title:"Dois + Dois",venue:"Teatro Villaret",link:"https://www.ticketline.pt/evento/dois-dois-105220"}
-];
+const TBC = [];
 const TOMORROW = {
-  day: "2026-10-05",
+  day: "2026-10-06",
   note: {
-    pt:"Uma antevisão, não a lista completa. A maioria dos teatros de Lisboa descansa à segunda-feira e 5 de outubro é feriado (Implantação da República), por isso confirme os horários.",
-    en:"A preview, not a full listing. Most Lisbon theatres rest on Mondays, and 5 October is a public holiday (Implantação da República), so check opening times."
+    pt:"Uma antevisão, não a lista completa. À terça a maioria dos teatros de Lisboa está fechada; Macbeth, Uma Casa, com Certeza e outras peças regressam na quarta-feira.",
+    en:"A preview, not a full listing. Most Lisbon theatres are dark on Tuesdays; Macbeth, Uma Casa, com Certeza and others return on Wednesday."
   },
   shows: [
-    {t:"16:00",d:90,title:"A Alegre História de Portugal em 90 Minutos",venue:"Teatro Bocage",tag:{pt:"Família",en:"Family"},link:"https://www.ticketline.pt/evento/a-alegre-historia-de-portugal-em-90-min-89541"},
-    {t:"20:00",d:120,title:"Forward Is Not the Only Way",venue:"São Luiz Teatro Municipal",tag:{pt:"Música e palco · Orquestra de Câmara Portuguesa",en:"Music + stage · Orquestra de Câmara Portuguesa"},link:"https://www.viralagenda.com/pt/events/1830340/forward-is-not-the-only-way"},
-    {t:"20:00",d:120,title:"Suzy Eddie Izzard: The Tragedy of Hamlet",venue:"Teatro Tivoli BBVA, Av. da Liberdade",tag:{pt:"Em inglês",en:"In English"},link:"https://www.ticketline.pt/evento/suzy-eddie-izzard-the-tragedy-of-hamlet-107654"}
+    {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"7 €",tag:{pt:"Dia do Espectador",en:"Spectator Day"},link:"https://artistasunidos.pt"},
+    {t:"21:00",d:90,title:"Dr. Love: A Cerimónia",venue:"Aula Magna",price:"20–28 €",link:"https://www.ticketline.pt/evento/dr-love-a-cerimonia-106253"}
   ]
 };
 
@@ -249,6 +231,7 @@ function render(){
 
   $("tbc-head").textContent = L.tbcHead;
   $("tbc-note").textContent = L.tbcNote;
+  $("tbc-block").hidden = TBC.length === 0;
   $("tbc").innerHTML = TBC.map(s=>rowHTML(s,["tbc",L.tbc])).join("");
   $("avail-note").innerHTML = L.avail;
   $("footer").textContent = L.footer(COMPILED);
