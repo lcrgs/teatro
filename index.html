@@ -111,23 +111,30 @@ footer{font-size:12px;color:var(--muted)}
 
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
-const DAY = "2026-10-05";
-const COMPILED = "2026-10-05 15:29";
+const DAY = "2026-10-06";
+const COMPILED = "2026-10-06 15:19";
 const SHOWS = [
-  {t:"16:00",d:90,title:"A Alegre História de Portugal em 90 Min.",venue:"Teatro Bocage",price:"12 €",tag:{pt:"Família · Feriado",en:"Family · Public holiday"},link:"https://www.ticketline.pt/evento/a-alegre-historia-de-portugal-em-90-min-89541"},
-  {t:"20:00",d:75,title:"Forward is not the only way",venue:"São Luiz Teatro Municipal, Sala Luis Miguel Cintra",tag:{pt:"Música, teatro e dança · Orquestra de Câmara Portuguesa",en:"Music, theatre and dance · Orquestra de Câmara Portuguesa"},link:"https://www.teatrosaoluiz.pt/"},
-  {t:"20:00",d:140,title:"Suzy Eddie Izzard: The Tragedy of Hamlet",venue:"Teatro Tivoli BBVA, Av. da Liberdade",price:"32–54 €",last:true,tag:{pt:"Em inglês · M/16",en:"In English · M/16"},link:"https://www.ticketline.pt/evento/suzy-eddie-izzard-the-tragedy-of-hamlet-107654"}
+  {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"7 €",tag:{pt:"Dia do Espectador",en:"Spectator Day"},link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
+  {t:"21:00",d:90,title:"Dr. Love: A Cerimónia",venue:"Aula Magna",price:"20–28 €",tag:{pt:"M/16",en:"M/16"},link:"https://www.ticketline.pt/evento/dr-love-a-cerimonia-106253"},
+  {t:"21:00",d:80,title:"Vamos Viajar na Maionese",venue:"Teatro Villaret",price:"20 €",tag:{pt:"Podcast ao vivo · M/16",en:"Live podcast · M/16"},link:"https://www.ticketline.pt/evento/vamos-viajar-na-maionese-106098"}
 ];
 const TBC = [];
 const TOMORROW = {
-  day: "2026-10-06",
+  day: "2026-10-07",
   note: {
-    pt:"Uma antevisão, não a lista completa. Depois do feriado, à terça a maioria dos teatros de Lisboa está fechada; Macbeth, Uma Casa, com Certeza e outras peças regressam na quarta-feira.",
-    en:"A preview, not a full listing. After the public holiday, most Lisbon theatres are dark on Tuesdays; Macbeth, Uma Casa, com Certeza and others return on Wednesday."
+    pt:"Uma antevisão, não a lista completa. À quarta-feira a maioria dos teatros de Lisboa volta a abrir, incluindo Macbeth no D. Maria II e Caminho do Céu no São Luiz (em cena só até sábado, 10).",
+    en:"A preview, not a full listing. Most Lisbon theatres reopen on Wednesday, including Macbeth at D. Maria II and Caminho do Céu at São Luiz (running only until Saturday the 10th)."
   },
   shows: [
-    {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"7 €",tag:{pt:"Dia do Espectador",en:"Spectator Day"},link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
-    {t:"21:00",d:90,title:"Dr. Love: A Cerimónia",venue:"Aula Magna",price:"20–28 €",link:"https://www.ticketline.pt/evento/dr-love-a-cerimonia-106253"}
+    {t:"18:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"27–38 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
+    {t:"19:00",d:90,title:"Macbeth",venue:"Teatro Nacional D. Maria II",price:"10–18 €",link:"https://www.tndm.pt/"},
+    {t:"19:00",d:80,title:"Uma Casa, com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
+    {t:"19:30",d:120,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/en/performance/caminho-do-ceu/"},
+    {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
+    {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"10–22 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
+    {t:"21:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"27–38 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
+    {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
+    {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"}
   ]
 };
 
