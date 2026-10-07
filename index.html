@@ -94,6 +94,7 @@ footer{font-size:12px;color:var(--muted)}
 
   <section class="block" id="amanha">
     <h2 id="tomorrow-head"></h2>
+    <p class="stale" id="tomorrow-warn"></p>
     <p class="note" id="tomorrow-note"></p>
     <div class="board" id="tomorrow"></div>
   </section>
@@ -111,28 +112,37 @@ footer{font-size:12px;color:var(--muted)}
 
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
-const DAY = "2026-10-06";
-const COMPILED = "2026-10-06 15:19";
+const DAY = "2026-10-07";
+const COMPILED = "2026-10-07 08:57";
 const SHOWS = [
-  {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"7 €",tag:{pt:"Dia do Espectador",en:"Spectator Day"},link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
-  {t:"21:00",d:90,title:"Dr. Love: A Cerimónia",venue:"Aula Magna",price:"20–28 €",tag:{pt:"M/16",en:"M/16"},link:"https://www.ticketline.pt/evento/dr-love-a-cerimonia-106253"},
-  {t:"21:00",d:80,title:"Vamos Viajar na Maionese",venue:"Teatro Villaret",price:"20 €",tag:{pt:"Podcast ao vivo · M/16",en:"Live podcast · M/16"},link:"https://www.ticketline.pt/evento/vamos-viajar-na-maionese-106098"}
+  {t:"18:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"27–38 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
+  {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",price:"Entrada livre",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
+  {t:"19:00",d:80,title:"Uma Casa, com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
+  {t:"19:30",d:120,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
+  {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
+  {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"11–19 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
+  {t:"21:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"27–38 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
+  {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",tag:{pt:"Estreia",en:"Opening night"},link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
+  {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"}
 ];
-const TBC = [];
+const TBC = [
+  {title:"O Casamento de Fígaro",venue:"Teatro do Bairro",link:"https://teatrodobairro.bol.pt/Comprar/Bilhetes/185029-o_casamento_de_figaro-teatro_do_bairro/"}
+];
 const TOMORROW = {
-  day: "2026-10-07",
+  day: "2026-10-08",
   note: {
-    pt:"Uma antevisão, não a lista completa. À quarta-feira a maioria dos teatros de Lisboa volta a abrir, incluindo Macbeth no D. Maria II e Caminho do Céu no São Luiz (em cena só até sábado, 10).",
-    en:"A preview, not a full listing. Most Lisbon theatres reopen on Wednesday, including Macbeth at D. Maria II and Caminho do Céu at São Luiz (running only until Saturday the 10th)."
+    pt:"Estreia no D. Maria II o Sumário: Auto da Barca do Inferno, e Caminho do Céu está em cena no São Luiz só até sábado, 10.",
+    en:"Sumário: Auto da Barca do Inferno opens at D. Maria II, and Caminho do Céu runs at São Luiz only until Saturday the 10th."
   },
   shows: [
-    {t:"18:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"27–38 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
-    {t:"19:00",d:90,title:"Macbeth",venue:"Teatro Nacional D. Maria II",price:"10–18 €",link:"https://www.tndm.pt/"},
+    {t:"10:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II, Sala Estúdio",price:"Entrada livre",tag:{pt:"Sessão para escolas · Esgotado",en:"School session · Sold out"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
+    {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",price:"Entrada livre",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
     {t:"19:00",d:80,title:"Uma Casa, com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-    {t:"19:30",d:120,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/en/performance/caminho-do-ceu/"},
-    {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
-    {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"10–22 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
-    {t:"21:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"27–38 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
+    {t:"19:30",d:120,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
+    {t:"21:00",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
+    {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
+    {t:"21:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
+    {t:"21:00",d:90,title:"Ensaio sobre a lucidez",venue:"Chapitô",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
     {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
     {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"}
   ]
@@ -144,6 +154,7 @@ const UI = {
     sub:"Todas as peças em cena hoje em Lisboa, por ordem de início. O estado atualiza ao vivo pela hora de Lisboa:",
     stale:d=>`Esta lista é de ${d}. A programação de hoje será diferente.`,
     fOpen:"Ainda a tempo", fAll:"Dia inteiro", filters:"Filtrar sessões",
+    tmrWarn:"Atenção: esta é a programação de amanhã, recolhida hoje. Horários e lugares podem mudar, e a lista é revista amanhã de manhã.",
     tomorrow:"Amanhã", tbcHead:"Também hoje, hora por confirmar",
     tbcNote:"Constam da bilheteira para hoje, mas não foi possível confirmar a hora. Veja o link antes de ir.",
     avail:"<strong>Lugares disponíveis:</strong> a Ticketline e a BOL só carregam o mapa de lugares no browser, por isso não é possível ler a lotação de fora. Use o link \"Bilhetes\" de cada sessão para ver a disponibilidade em tempo real. O <em>Clube dos Poetas Mortos</em> esgota com frequência; compre antes de sair de casa.",
@@ -157,6 +168,7 @@ const UI = {
     sub:"Every play on in Lisbon today, ordered by curtain time. Status updates live against Lisbon time:",
     stale:d=>`This listing is for ${d}. Today's programme will differ.`,
     fOpen:"Still catchable", fAll:"Whole day", filters:"Filter sessions",
+    tmrWarn:"Heads up: this is tomorrow's programme, gathered today. Times and seats can change, and the list is checked again tomorrow morning.",
     tomorrow:"Tomorrow", tbcHead:"Also on today, time not confirmed",
     tbcNote:"These are listed for today by the box office, but we couldn't confirm the time. Check the link before you go.",
     avail:"<strong>About seat availability:</strong> Ticketline and BOL load their seat maps only in the browser, so remaining seats can't be read from outside. Use each \"Tickets\" link to see live availability. <em>Clube dos Poetas Mortos</em> sells out often; book before travelling.",
@@ -231,7 +243,9 @@ function render(){
   $("board").innerHTML = nudge + rows.map(r=>rowHTML(r.s,r.st)).join("");
 
   $("tomorrow-head").textContent = `${L.tomorrow} · ${longDate(TOMORROW.day,false)}`;
+  $("tomorrow-warn").textContent = L.tmrWarn;
   $("tomorrow-note").textContent = tx(TOMORROW.note);
+  $("tomorrow-note").hidden = !tx(TOMORROW.note);
   $("tomorrow").innerHTML = TOMORROW.shows.length
     ? TOMORROW.shows.map(s=>rowHTML(s,["later",L.tmr])).join("")
     : `<p class="empty">${L.noTmr}</p>`;
