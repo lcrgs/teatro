@@ -113,38 +113,44 @@ footer{font-size:12px;color:var(--muted)}
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
 const DAY = "2026-10-07";
-const COMPILED = "2026-10-07 08:57";
+const COMPILED = "2026-10-07 15:16";
 const SHOWS = [
-  {t:"18:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"27–38 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
+  {t:"18:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"25–35 €",last:true,tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
   {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",price:"Entrada livre",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
   {t:"19:00",d:80,title:"Uma Casa, com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-  {t:"19:30",d:120,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
+  {t:"19:30",d:135,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
   {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
   {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"11–19 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
-  {t:"21:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"27–38 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
+  {t:"21:00",d:80,title:"Uma Vida de Amizade",venue:"Teatro Armando Cortez (Casa do Artista)",price:"25–35 €",last:true,tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/umavidadeamizade-105954"},
   {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",tag:{pt:"Estreia",en:"Opening night"},link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
-  {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"}
+  {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
+  {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/en/evento/quando-menos-se-espera-106434"},
+  {t:"21:00",d:90,title:"7 Jewish Children",venue:"BOTA (Anjos)",price:"Donativo",link:"https://ineews.eu/new/2026/10/06/bota-programacao-na-sala-lisboeta-de-7-a-11-de-outubro/"}
 ];
 const TBC = [
-  {title:"O Casamento de Fígaro",venue:"Teatro do Bairro",link:"https://teatrodobairro.bol.pt/Comprar/Bilhetes/185029-o_casamento_de_figaro-teatro_do_bairro/"}
+  {title:"O Casamento de Fígaro",venue:"Teatro do Bairro",link:"https://www.viralagenda.com/pt/events/1854809/o-casamento-de-figaro"}
 ];
 const TOMORROW = {
   day: "2026-10-08",
   note: {
-    pt:"Estreia no D. Maria II o Sumário: Auto da Barca do Inferno, e Caminho do Céu está em cena no São Luiz só até sábado, 10.",
-    en:"Sumário: Auto da Barca do Inferno opens at D. Maria II, and Caminho do Céu runs at São Luiz only until Saturday the 10th."
+    pt:"Estreia no D. Maria II o Sumário: Auto da Barca do Inferno, e Caminho do Céu fica no São Luiz só até domingo, 11.",
+    en:"Sumário: Auto da Barca do Inferno opens at D. Maria II, and Caminho do Céu runs at São Luiz only until Sunday the 11th."
   },
   shows: [
     {t:"10:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II, Sala Estúdio",price:"Entrada livre",tag:{pt:"Sessão para escolas · Esgotado",en:"School session · Sold out"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
     {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",price:"Entrada livre",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
+    {t:"19:00",d:90,title:"Ájax",venue:"ZDB 8 Marvila",price:"10 €",link:"https://ma.to/event/ajax-claudio-da-silva-zdb-8-marvila-08-oct-2026"},
     {t:"19:00",d:80,title:"Uma Casa, com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-    {t:"19:30",d:120,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
+    {t:"19:30",d:135,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
     {t:"21:00",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
     {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
     {t:"21:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
     {t:"21:00",d:90,title:"Ensaio sobre a lucidez",venue:"Chapitô",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
     {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
-    {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"}
+    {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
+    {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/en/evento/quando-menos-se-espera-106434"},
+    {t:"21:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/en/evento/pura-loucura-107215"},
+    {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/en/evento/dois-dois-105220"}
   ]
 };
 
