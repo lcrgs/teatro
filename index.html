@@ -112,55 +112,68 @@ footer{font-size:12px;color:var(--muted)}
 
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
-const DAY = "2026-10-08";
-const COMPILED = "2026-10-08 15:17";
+const DAY = "2026-10-09";
+const COMPILED = "2026-10-09 15:25";
 const SHOWS = [
-  {t:"10:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II, Sala Estúdio",price:"Entrada livre",tag:{pt:"Sessão para escolas · Esgotado",en:"School session · Sold out"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
-  {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
-  {t:"19:00",d:90,title:"Ájax",venue:"ZDB 8 Marvila",price:"10 €",tag:{pt:"Estreia",en:"Opening night"},link:"https://www.timeout.pt/lisboa/pt/teatro/ajax"},
-  {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-  {t:"19:30",d:135,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
-  {t:"20:00",d:150,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–40 €",tag:{pt:"Estreia",en:"Opening night"},link:"https://ma.to/event/mil-vezes-revista-premiere-08-oct-2026"},
+  {t:"10:30",d:60,title:"O Segredo do Rio",venue:"Museu da Marioneta",tag:{pt:"Sessão para escolas · Família",en:"School session · Family"},link:"https://www.museudamarioneta.pt/"},
+  {t:"19:00",d:90,title:"Ájax",venue:"ZDB 8 Marvila",price:"10 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ajax"},
+  {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
+  {t:"19:30",d:135,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12 · Audiodescrição",en:"M/12 · Audio description"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
+  {t:"20:00",d:90,title:"Laissez-Faire",venue:"Centro Cultural de Belém, Pequeno Auditório",price:"15 €",link:"https://www.timeout.pt/lisboa/pt/teatro/laissez-faire"},
+  {t:"21:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
+  {t:"21:00",d:90,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–40 €",link:"https://revistabica.com/mil-vezes-revista-filipe-la-feria/"},
+  {t:"21:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",price:"15 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.viralagenda.com/pt/events/1854808/o-casamento-de-figaro"},
   {t:"21:00",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
-  {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"10–22 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
+  {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
   {t:"21:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
   {t:"21:00",d:90,title:"Ensaio sobre a lucidez",venue:"Chapitô",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
   {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
   {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
   {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/en/evento/quando-menos-se-espera-106434"},
-  {t:"21:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/en/evento/pura-loucura-107215"},
-  {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/en/evento/dois-dois-105220"}
+  {t:"21:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://teatromariamatos.pt/espetaculos/pura-loucura/"},
+  {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://teatrovillaret.pt/espetaculos/dois-dois/"},
+  {t:"21:00",d:90,title:"Acontece Camões",venue:"Teatro Taborda",price:"12 €",link:"https://www.timeout.pt/lisboa/pt/teatro/acontece-camoes"},
+  {t:"21:00",d:90,title:"As Telefones",venue:"Sala Estúdio Valentim de Barros",price:"12 €",tag:{pt:"Estreia",en:"Opening night"},link:"https://revistabica.com/as-telefones-djaimilia-pereira-de-almeida/"},
+  {t:"21:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II, Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
+  {t:"21:30",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"}
 ];
-const TBC = [
-  {title:"O Casamento de Fígaro",venue:"Teatro do Bairro",link:"https://www.viralagenda.com/pt/events/1854807/o-casamento-de-figaro"}
-];
+const TBC = [];
 const TOMORROW = {
-  day: "2026-10-09",
+  day: "2026-10-10",
   note: {
-    pt:"Mil Vezes Revista, que estreia hoje no Politeama, entra em temporada. Caminho do Céu, Superstar e Ájax só ficam até domingo, 11.",
-    en:"Mil Vezes Revista, which premieres today at the Politeama, begins its regular run. Caminho do Céu, Superstar and Ájax run only until Sunday the 11th."
+    pt:"Último dia de Acontece Camões no Teatro Taborda. Estreiam Ser Diferente é Normal (Tivoli, sessões de sábado para famílias) e Portela 2037, caminhada-espetáculo com partida da Quinta Alegre. Caminho do Céu, Superstar, Ájax, Laissez-Faire e As Telefones terminam no domingo, 11.",
+    en:"Last day of Acontece Camões at Teatro Taborda. Opening: Ser Diferente é Normal (Tivoli, Saturday family sessions) and Portela 2037, a walking performance starting from Quinta Alegre. Caminho do Céu, Superstar, Ájax, Laissez-Faire and As Telefones close on Sunday the 11th."
   },
   shows: [
+    {t:"11:00",d:90,title:"Ser Diferente é Normal",venue:"Teatro Tivoli BBVA",price:"15 €",tag:{pt:"Estreia · Família",en:"Opening · Family"},link:"https://www.timeout.pt/lisboa/pt/noticias/ser-diferente-e-normal-livro-de-rui-malvarez-inspira-grande-musical-infantil-no-tivoli-bbva-100126"},
+    {t:"11:00",d:120,title:"Portela 2037",venue:"Hotel Europa / Culturgest, partida da Quinta Alegre (Santa Clara)",price:"10 €",tag:{pt:"Estreia · Caminhada-espetáculo · M/12",en:"Opening · Walking performance · M/12"},link:"https://www.culturgest.pt/pt/programacao/hotel-europa-portela-2037/"},
+    {t:"16:00",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
+    {t:"16:00",d:60,title:"O Segredo do Rio",venue:"Museu da Marioneta",tag:{pt:"Marionetas · Família",en:"Puppets · Family"},link:"https://www.museudamarioneta.pt/"},
+    {t:"16:00",d:120,title:"Portela 2037",venue:"Hotel Europa / Culturgest, partida da Quinta Alegre (Santa Clara)",price:"10 €",tag:{pt:"Caminhada-espetáculo · M/12",en:"Walking performance · M/12"},link:"https://www.culturgest.pt/pt/programacao/hotel-europa-portela-2037/"},
+    {t:"16:30",d:90,title:"Akai e Koku",venue:"Casa do Coreto, Carnide",tag:{pt:"Para bebés · Família",en:"For babies · Family"},link:"https://www.viralagenda.com/pt/p/casadocoreto"},
+    {t:"17:00",d:90,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–40 €",link:"https://revistabica.com/mil-vezes-revista-filipe-la-feria/"},
+    {t:"17:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",price:"15 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.viralagenda.com/pt/events/1854808/o-casamento-de-figaro"},
+    {t:"17:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"Sessão extra · M/14",en:"Extra session · M/14"},link:"https://www.ticketline.pt/en/evento/quando-menos-se-espera-106434"},
+    {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
     {t:"19:00",d:90,title:"Ájax",venue:"ZDB 8 Marvila",price:"10 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ajax"},
-    {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-    {t:"19:30",d:135,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12 · Audiodescrição",en:"M/12 · Audio description"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
-    {t:"20:00",d:90,title:"Laissez-Faire",venue:"Centro Cultural de Belém, Pequeno Auditório",price:"15 €",link:"https://www.timeout.pt/lisboa/pt/teatro/laissez-faire"},
-    {t:"21:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
-    {t:"21:00",d:150,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–40 €",link:"https://revistabica.com/mil-vezes-revista-filipe-la-feria/"},
-    {t:"21:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",tag:{pt:"M/12",en:"M/12"},link:"https://www.viralagenda.com/pt/events/1854808/o-casamento-de-figaro"},
+    {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
+    {t:"19:00",d:90,title:"Laissez-Faire",venue:"Centro Cultural de Belém, Pequeno Auditório",price:"15 €",link:"https://www.timeout.pt/lisboa/pt/teatro/laissez-faire"},
+    {t:"19:30",d:135,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
+    {t:"19:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II, Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
+    {t:"21:00",d:90,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–40 €",link:"https://revistabica.com/mil-vezes-revista-filipe-la-feria/"},
     {t:"21:00",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://artistasunidos.pt/mais-longe-que-a-coisa-mais-longe-de-zinnie-harris/"},
-    {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"10–22 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
+    {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
     {t:"21:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
     {t:"21:00",d:90,title:"Ensaio sobre a lucidez",venue:"Chapitô",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
     {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
     {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
     {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/en/evento/quando-menos-se-espera-106434"},
-    {t:"21:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/en/evento/pura-loucura-107215"},
-    {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/en/evento/dois-dois-105220"},
-    {t:"21:00",d:90,title:"Acontece Camões",venue:"Teatro Taborda",price:"12 €",link:"https://www.timeout.pt/lisboa/pt/teatro/acontece-camoes"},
-    {t:"21:00",d:90,title:"As Telefones",venue:"Sala Estúdio Valentim de Barros (Jardins do Bombarda)",price:"12 €",link:"https://www.ticketline.pt/evento/as-telefones-107201"},
-    {t:"21:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II, Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
-    {t:"21:30",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"}
+    {t:"21:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://teatromariamatos.pt/espetaculos/pura-loucura/"},
+    {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://teatrovillaret.pt/espetaculos/dois-dois/"},
+    {t:"21:00",d:90,title:"Acontece Camões",venue:"Teatro Taborda",price:"12 €",last:true,link:"https://www.timeout.pt/lisboa/pt/teatro/acontece-camoes"},
+    {t:"21:00",d:90,title:"As Telefones",venue:"Sala Estúdio Valentim de Barros",price:"12 €",link:"https://revistabica.com/as-telefones-djaimilia-pereira-de-almeida/"},
+    {t:"21:30",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"},
+    {t:"21:30",d:90,title:"Separados... Mas Pouco",venue:"Auditório do Museu da Farmácia",price:"15–23 €",tag:{pt:"M/14",en:"M/14"},link:"https://feverup.com/m/532172"}
   ]
 };
 
