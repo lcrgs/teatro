@@ -111,42 +111,22 @@ footer{font-size:12px;color:var(--muted)}
 
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
-const DAY = "2026-10-11";
-const COMPILED = "2026-10-11 15:32";
+const DAY = "2026-10-12";
+const COMPILED = "2026-10-12 15:21";
 const SHOWS = [
-  {t:"11:00",d:120,title:"Portela 2037",venue:"Hotel Europa / Culturgest, partida da Quinta Alegre (Santa Clara)",price:"10 €",tag:{pt:"Caminhada-espetáculo · M/12",en:"Walking performance · M/12"},link:"https://www.ticketline.pt/evento/hotel-europa-portela-2037-106083"},
-  {t:"16:00",d:120,title:"Portela 2037",venue:"Hotel Europa / Culturgest, partida da Quinta Alegre (Santa Clara)",price:"10 €",tag:{pt:"Esgotado · Caminhada-espetáculo · M/12",en:"Sold out · Walking performance · M/12"},link:"https://www.ticketline.pt/evento/hotel-europa-portela-2037-106083"},
-  {t:"16:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",tag:{pt:"M/12 · Audiodescrição · LGP · Conversa pós-espetáculo",en:"M/12 · Audio description · PT Sign Language · Post-show talk"},link:"https://www.tndm.pt/macbeth"},
-  {t:"16:00",d:135,title:"Caminho do Céu",venue:"Teatro São Luiz, Sala Mário Viegas",price:"12 €",last:true,tag:{pt:"M/12 · Audiodescrição",en:"M/12 · Audio description"},link:"https://www.teatrosaoluiz.pt/espetaculo/caminho-do-ceu/"},
-  {t:"16:00",d:90,title:"Ájax",venue:"ZDB 8 Marvila",price:"10 €",last:true,link:"https://www.timeout.pt/lisboa/pt/teatro/ajax"},
-  {t:"16:00",d:90,title:"As Telefones",venue:"Sala Estúdio Valentim de Barros, Jardins do Bombarda",price:"12 €",last:true,link:"https://www.timeout.pt/lisboa/pt/teatro/as-telefones"},
-  {t:"16:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
-  {t:"16:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
-  {t:"16:00",d:90,title:"Rosaline, a Ex do Romeu",venue:"Casino Lisboa, Auditório dos Oceanos",price:"15–30 €",tag:{pt:"Musical · M/6",en:"Musical · M/6"},link:"https://www.ticketline.pt/evento/rosaline-a-ex-do-romeu-99910"},
-  {t:"16:30",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14 · Conversa com o público",en:"M/14 · Audience talk"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
-  {t:"16:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II, Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
-  {t:"17:00",d:90,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–40 €",link:"https://revistabica.com/mil-vezes-revista-filipe-la-feria/"},
-  {t:"17:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",tag:{pt:"M/12",en:"M/12"},link:"https://www.viralagenda.com/pt/events/1854808/o-casamento-de-figaro"},
-  {t:"17:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/en/evento/quando-menos-se-espera-106434"},
-  {t:"17:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",last:true,tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
-  {t:"17:00",d:90,title:"Ensaio sobre a lucidez",venue:"Chapitô",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
-  {t:"17:00",d:90,title:"Laissez-Faire",venue:"Centro Cultural de Belém, Pequeno Auditório",price:"15 €",last:true,link:"https://www.timeout.pt/lisboa/pt/teatro/laissez-faire"},
-  {t:"18:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://teatromariamatos.pt/espetaculos/pura-loucura/"},
-  {t:"18:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://teatrovillaret.pt/espetaculos/dois-dois/"},
-  {t:"18:00",d:90,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"},
-  {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"M/14 · Conversa com o público",en:"M/14 · Audience talk"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"}
+  {t:"21:00",d:90,title:"Cock",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"Estreia · M/16",en:"Opening night · M/16"},link:"https://www.ticketline.pt/evento/cock-106810"}
 ];
-const TBC = [
-  {title:"Akai e Koku",venue:"Casa do Coreto, Carnide",tag:{pt:"Para bebés · Família",en:"For babies · Family"},link:"https://www.viralagenda.com/pt/p/casadocoreto"}
-];
+const TBC = [];
 const TOMORROW = {
-  day: "2026-10-12",
+  day: "2026-10-13",
   note: {
-    pt:"Segunda-feira: quase todas as salas estão fechadas. Estreia Cock no Teatro Maria Matos (segundas e terças às 21:00). Na terça regressam, entre outros, Quando Menos Se Espera (Tivoli, 21:00) e Mais longe que a coisa mais longe (Teatro Paulo Claro, 19:30).",
-    en:"Monday: almost every theatre is dark. Cock opens at Teatro Maria Matos (Mondays and Tuesdays at 21:00). On Tuesday shows return, including Quando Menos Se Espera (Tivoli, 21:00) and Mais longe que a coisa mais longe (Teatro Paulo Claro, 19:30)."
+    pt:"Terça-feira: a maioria das salas continua fechada e reabre na quarta (Macbeth, Mil Vezes Revista, Clube dos Poetas Mortos, Imitação dos Pássaros, O Casamento de Fígaro). Terça é Dia do Espectador nos Artistas Unidos (bilhete a 7 €).",
+    en:"Tuesday: most theatres stay dark and reopen on Wednesday (Macbeth, Mil Vezes Revista, Clube dos Poetas Mortos, Imitação dos Pássaros, O Casamento de Fígaro). Tuesday is Audience Day at Artistas Unidos (7 € tickets)."
   },
   shows: [
-    {t:"21:00",d:90,title:"Cock",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"Estreia · M/16",en:"Opening · M/16"},link:"https://teatromariamatos.pt/espetaculos/cock/"}
+    {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"7 €",link:"https://www.timeout.pt/lisboa/pt/teatro/mais-longe-que-a-coisa-mais-longe"},
+    {t:"21:00",d:90,title:"Cock",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/16",en:"M/16"},link:"https://www.ticketline.pt/evento/cock-106810"},
+    {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"Sessão extra · M/14",en:"Extra performance · M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"}
   ]
 };
 
