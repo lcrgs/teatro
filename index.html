@@ -111,22 +111,35 @@ footer{font-size:12px;color:var(--muted)}
 
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
-const DAY = "2026-10-12";
-const COMPILED = "2026-10-12 15:21";
+const DAY = "2026-10-13";
+const COMPILED = "2026-10-13 15:36";
 const SHOWS = [
-  {t:"21:00",d:90,title:"Cock",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"Estreia · M/16",en:"Opening night · M/16"},link:"https://www.ticketline.pt/evento/cock-106810"}
+  {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"7 €",tag:{pt:"Dia do Espectador",en:"Audience Day"},link:"https://www.timeout.pt/lisboa/pt/teatro/mais-longe-que-a-coisa-mais-longe"},
+  {t:"21:00",d:90,title:"Cock",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/16",en:"M/16"},link:"https://www.ticketline.pt/evento/cock-106810"},
+  {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"Sessão extra · M/14",en:"Extra performance · M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"}
 ];
 const TBC = [];
 const TOMORROW = {
-  day: "2026-10-13",
+  day: "2026-10-14",
   note: {
-    pt:"Terça-feira: a maioria das salas continua fechada e reabre na quarta (Macbeth, Mil Vezes Revista, Clube dos Poetas Mortos, Imitação dos Pássaros, O Casamento de Fígaro). Terça é Dia do Espectador nos Artistas Unidos (bilhete a 7 €).",
-    en:"Tuesday: most theatres stay dark and reopen on Wednesday (Macbeth, Mil Vezes Revista, Clube dos Poetas Mortos, Imitação dos Pássaros, O Casamento de Fígaro). Tuesday is Audience Day at Artistas Unidos (7 € tickets)."
+    pt:"Quarta-feira: as salas reabrem e há várias estreias (Mal na Raiz no São Luiz, Happy New Lear n'A Barraca, E se a Mónica na Escola de Mulheres). Quarta é Dia do Espectador no Trindade (4 € de desconto). Mais longe que a coisa mais longe só fica até sábado, 17.",
+    en:"Wednesday: theatres reopen and several shows premiere (Mal na Raiz at São Luiz, Happy New Lear at A Barraca, E se a Mónica at Escola de Mulheres). Wednesday is Audience Day at Trindade (4 € off). Mais longe que a coisa mais longe runs only until Saturday the 17th."
   },
   shows: [
-    {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"7 €",link:"https://www.timeout.pt/lisboa/pt/teatro/mais-longe-que-a-coisa-mais-longe"},
-    {t:"21:00",d:90,title:"Cock",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/16",en:"M/16"},link:"https://www.ticketline.pt/evento/cock-106810"},
-    {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"Sessão extra · M/14",en:"Extra performance · M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"}
+    {t:"10:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II, Sala Estúdio",tag:{pt:"Sessão para escolas · Esgotado",en:"School session · Sold out"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
+    {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II, Sala Garrett",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
+    {t:"19:00",d:75,title:"Mal na Raiz",venue:"Teatro São Luiz, Sala Bernardo Sassetti",price:"12 €",tag:{pt:"Estreia · M/14",en:"Opening night · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/mal-na-raiz/"},
+    {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL, Estúdio",price:"11–15 €",tag:{pt:"Dia do Espectador · M/14",en:"Audience Day · M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
+    {t:"19:30",d:90,title:"Mais longe que a coisa mais longe",venue:"Teatro Paulo Claro (Artistas Unidos), Marvila",price:"12 €",link:"https://www.timeout.pt/lisboa/pt/teatro/mais-longe-que-a-coisa-mais-longe"},
+    {t:"19:30",d:90,title:"Happy New Lear",venue:"Teatro Cinearte (A Barraca), Santos",price:"22 €",tag:{pt:"Estreia",en:"Opening night"},link:"https://www.timeout.pt/lisboa/pt/teatro/happy-new-lear"},
+    {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL, Sala Carmen Dolores",price:"11–19 €",tag:{pt:"Dia do Espectador · M/14",en:"Audience Day · M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
+    {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional, Marvila",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
+    {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",link:"https://cartazculturallisboa.pt/evento/dois-dois-regressa-ao-teatro-villaret-com-nova-temporada/"},
+    {t:"21:00",d:90,title:"E se a Mónica",venue:"Clube Estefânia (Escola de Mulheres)",price:"12,50 €",tag:{pt:"Estreia · M/12",en:"Opening night · M/12"},link:"https://musicfest.bol.pt/Comprar/Bilhetes/185334-e_se_a_monica-espaco_escola_de_mulheres/"},
+    {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
+    {t:"21:00",d:90,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–40 €",link:"https://revistabica.com/mil-vezes-revista-filipe-la-feria/"},
+    {t:"21:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",tag:{pt:"M/12",en:"M/12"},link:"https://www.viralagenda.com/pt/events/1854808/o-casamento-de-figaro"},
+    {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"20–30 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"}
   ]
 };
 
