@@ -111,58 +111,60 @@ footer{font-size:12px;color:var(--muted)}
 
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
-const DAY = "2026-10-22";
-const COMPILED = "2026-10-22 15:25";
+const DAY = "2026-10-23";
+const COMPILED = "2026-10-23 15:24";
 const SHOWS = [
-  {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II · Sala Garrett",price:"10–18 €",tag:{pt:"Esgotado · M/12",en:"Sold out · M/12"},link:"https://tndm.bol.pt/Comprar/Bilhetes/182677/1969444/Sectores"},
+  {t:"18:00",d:100,title:"Desver",venue:"Teatro Nacional D. Maria II · Salão Nobre",tag:{pt:"Estreia · M/12",en:"Opening night · M/12"},link:"https://tndm.bol.pt/Comprar/Bilhetes/182914-desver-teatro_nacional_d_maria_ii/Sessoes"},
   {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL · Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-  {t:"19:30",d:90,title:"Happy New Lear",venue:"Teatro Cinearte (A Barraca)",price:"22 €",link:"https://www.timeout.pt/lisboa/pt/teatro/happy-new-lear"},
-  {t:"20:00",d:90,title:"Héritage",venue:"CCB · Pequeno Auditório",price:"20 €",tag:{pt:"Em francês, legendado em PT · M/16",en:"In French, Portuguese surtitles · M/16"},link:"https://www.ccb.pt/en/?p=296710"},
-  {t:"20:10",d:105,title:"Ópera-Pimba no Gelo! O Primeiro Musical no Gelo Derretido",venue:"Teatro da Comuna · Sala Nova",price:"16 €",tag:{pt:"Musical · M/12",en:"Musical · M/12"},link:"https://comunateatro.bol.pt/Comprar/Bilhetes/182829-opera_pimba_no_gelo_derretido-teatro_da_comuna/"},
-  {t:"21:00",d:90,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL · Sala Carmen Dolores",price:"15–24 €",link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
+  {t:"20:00",d:90,title:"Héritage",venue:"CCB · Pequeno Auditório",price:"20 €",last:true,tag:{pt:"Em francês, legendado em PT · M/16",en:"In French, Portuguese surtitles · M/16"},link:"https://www.ccb.pt/en/?p=296710"},
+  {t:"20:00",d:70,title:"Under the Shade of a Tree I Sat and Wept",venue:"São Luiz Teatro Municipal · Sala Luis Miguel Cintra",price:"12–15 €",tag:{pt:"Estreia · Legendado em PT e EN · M/14",en:"Opening night · PT & EN subtitles · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/under-the-shade-of-a-tree-i-sat-and-wept/"},
+  {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL · Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
   {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
   {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/dois-dois-105220"},
   {t:"21:00",d:90,title:"E se a Mónica",venue:"Escola de Mulheres · Clube Estefânia",tag:{pt:"Teatro e dança",en:"Theatre & dance"},link:"https://www.visitlisboa.com/pt-pt/eventos/e-se-a-monica"},
   {t:"21:00",d:90,title:"Ensaio sobre a Lucidez",venue:"Chapitô",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
-  {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
-  {t:"21:00",d:50,title:"INTRA | A Fome Tem o Teu Nome",venue:"Espaço Laboratório",price:"16,11 €",tag:{pt:"Estreia · M/12",en:"Opening night · M/12"},link:"https://www.ticketline.pt/evento/intra-a-fome-tem-o-teu-nome-107412"},
+  {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",tag:{pt:"Com audiodescrição",en:"Audio-described"},link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
+  {t:"21:00",d:50,title:"INTRA | A Fome Tem o Teu Nome",venue:"Espaço Laboratório",price:"16,11 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/intra-a-fome-tem-o-teu-nome-107412"},
+  {t:"21:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II · Sala Garrett",price:"10–18 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/macbeth"},
   {t:"21:00",d:180,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–50 €",tag:{pt:"Revista",en:"Revue"},link:"https://www.bol.pt/Comprar/Bilhetes/182504-mil_vezes_revista-teatro_politeama/"},
-  {t:"21:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",price:"15 €",link:"https://teatrodobairro.bol.pt/Comprar/Bilhetes/185029-o_casamento_de_figaro-teatro_do_bairro/"},
+  {t:"21:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",price:"15 €",tag:{pt:"M/12",en:"M/12"},link:"https://teatrodobairro.bol.pt/Comprar/Bilhetes/185029-o_casamento_de_figaro-teatro_do_bairro/"},
   {t:"21:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/pura-loucura-107215"},
   {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"21–32 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"},
   {t:"21:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
+  {t:"21:30",d:90,title:"Happy New Lear",venue:"Teatro Cinearte (A Barraca)",price:"22 €",link:"https://www.timeout.pt/lisboa/pt/teatro/happy-new-lear"},
+  {t:"21:30",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"},
   {t:"21:30",d:40,title:"Os Cegos, de Maurice Maeterlinck",venue:"CAL – Centro de Artes de Lisboa",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/os-cegos-de-maurice-maeterlinck-108016"},
+  {t:"21:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II · Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
   {t:"21:30",d:90,title:"T2 em Benfica por 600€!",venue:"Cine-Teatro Turim",price:"16 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/t2-em-benfica-por-600-101739"}
 ];
-const TBC = [
-  {title:"Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II",link:"https://cartazculturallisboa.pt/agenda-eventos-lisboa/"}
-];
+const TBC = [];
 const TOMORROW = {
-  day: "2026-10-23",
+  day: "2026-10-24",
   note: {
-    pt:"Sexta-feira: estreiam Desver, de Joana Craveiro, no Salão Nobre do D. Maria II (às 18:00), e Under the Shade of a Tree I Sat and Wept no São Luiz (só até domingo). Última sessão de Héritage no CCB. Ópera-Pimba passa para as 21:00 e Happy New Lear para as 21:30; Imitação dos Pássaros tem audiodescrição.",
-    en:"Friday: Joana Craveiro's Desver opens in the D. Maria II's Salão Nobre (at 18:00), and Under the Shade of a Tree I Sat and Wept opens at the São Luiz (through Sunday only). Last performance of Héritage at the CCB. Ópera-Pimba moves to 21:00 and Happy New Lear to 21:30; Imitação dos Pássaros has audio description."
+    pt:"Sábado: Em Silêncio, de Teresa Sobral, estreia no São Luiz. Últimas sessões de INTRA no Espaço Laboratório. Há matinés de Desver (esgotado), Mil Vezes Revista e O Casamento de Fígaro, e duas sessões de O Algoritmo. Ópera-Pimba (Comuna) cancelou as sessões de 22 a 25 de outubro devido a um acidente com um ator. Happy New Lear não tem sessão de sábado anunciada. Rosaline, a Ex do Romeu (Casino Lisboa) não tem sessão anunciada para sábado; a próxima é no domingo, 25.",
+    en:"Saturday: Teresa Sobral's Em Silêncio opens at the São Luiz. Last performances of INTRA at Espaço Laboratório. There are matinees of Desver (sold out), Mil Vezes Revista and O Casamento de Fígaro, and two sessions of O Algoritmo. Ópera-Pimba (Comuna) has cancelled its 22–25 October performances after an accident involving a cast member. Happy New Lear has no Saturday session listed. Rosaline, a Ex do Romeu (Casino Lisboa) has no Saturday session listed; the next one is on Sunday the 25th."
   },
   shows: [
-    {t:"18:00",d:100,title:"Desver",venue:"Teatro Nacional D. Maria II · Salão Nobre",tag:{pt:"Estreia · M/12",en:"Opening night · M/12"},link:"https://tndm.bol.pt/Comprar/Bilhetes/182914-desver-teatro_nacional_d_maria_ii/Sessoes"},
-    {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II · Sala Garrett",price:"10–18 €",tag:{pt:"Esgotado · M/12",en:"Sold out · M/12"},link:"https://tndm.bol.pt/Comprar/Bilhetes/182677/1969444/Sectores"},
+    {t:"15:00",d:100,title:"Desver",venue:"Teatro Nacional D. Maria II · Salão Nobre",tag:{pt:"Esgotado · M/12",en:"Sold out · M/12"},link:"https://tndm.bol.pt/Comprar/Bilhetes/182914-desver-teatro_nacional_d_maria_ii/Sessoes"},
+    {t:"17:00",d:180,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–50 €",tag:{pt:"Revista",en:"Revue"},link:"https://www.bol.pt/Comprar/Bilhetes/182504-mil_vezes_revista-teatro_politeama/"},
+    {t:"17:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",price:"15 €",tag:{pt:"M/12",en:"M/12"},link:"https://teatrodobairro.bol.pt/Comprar/Bilhetes/185029-o_casamento_de_figaro-teatro_do_bairro/"},
+    {t:"18:00",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"},
+    {t:"19:00",d:90,title:"E se a Mónica",venue:"Escola de Mulheres · Clube Estefânia",tag:{pt:"Teatro e dança",en:"Theatre & dance"},link:"https://www.visitlisboa.com/pt-pt/eventos/e-se-a-monica"},
+    {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II · Sala Garrett",price:"10–18 €",tag:{pt:"Legendado em inglês · M/12",en:"English subtitles · M/12"},link:"https://www.tndm.pt/macbeth"},
     {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL · Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-    {t:"20:00",d:90,title:"Héritage",venue:"CCB · Pequeno Auditório",price:"20 €",last:true,tag:{pt:"Em francês, legendado em PT · M/16",en:"In French, Portuguese surtitles · M/16"},link:"https://www.ccb.pt/en/?p=296710"},
-    {t:"20:00",d:70,title:"Under the Shade of a Tree I Sat and Wept",venue:"São Luiz Teatro Municipal · Sala Luis Miguel Cintra",price:"12–15 €",tag:{pt:"Estreia · Legendado em PT e EN · M/14",en:"Opening night · PT & EN subtitles · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/under-the-shade-of-a-tree-i-sat-and-wept/"},
-    {t:"21:00",d:90,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL · Sala Carmen Dolores",price:"15–24 €",link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-98307"},
+    {t:"19:30",d:120,title:"Em Silêncio",venue:"São Luiz Teatro Municipal · Sala Mário Viegas",price:"12 €",tag:{pt:"Estreia · M/14",en:"Opening night · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/em-silencio/"},
+    {t:"19:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II · Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
+    {t:"20:00",d:70,title:"Under the Shade of a Tree I Sat and Wept",venue:"São Luiz Teatro Municipal · Sala Luis Miguel Cintra",price:"12–15 €",tag:{pt:"Legendado em PT e EN · M/14",en:"PT & EN subtitles · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/under-the-shade-of-a-tree-i-sat-and-wept/"},
+    {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL · Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
     {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
     {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/dois-dois-105220"},
-    {t:"21:00",d:90,title:"E se a Mónica",venue:"Escola de Mulheres · Clube Estefânia",tag:{pt:"Teatro e dança",en:"Theatre & dance"},link:"https://www.visitlisboa.com/pt-pt/eventos/e-se-a-monica"},
     {t:"21:00",d:90,title:"Ensaio sobre a Lucidez",venue:"Chapitô",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
-    {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",tag:{pt:"Com audiodescrição",en:"Audio-described"},link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
-    {t:"21:00",d:50,title:"INTRA | A Fome Tem o Teu Nome",venue:"Espaço Laboratório",price:"16,11 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/intra-a-fome-tem-o-teu-nome-107412"},
+    {t:"21:00",d:90,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://www.timeout.pt/lisboa/pt/teatro/imitacao-dos-passaros"},
+    {t:"21:00",d:50,title:"INTRA | A Fome Tem o Teu Nome",venue:"Espaço Laboratório",price:"16,11 €",last:true,tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/intra-a-fome-tem-o-teu-nome-107412"},
     {t:"21:00",d:180,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–50 €",tag:{pt:"Revista",en:"Revue"},link:"https://www.bol.pt/Comprar/Bilhetes/182504-mil_vezes_revista-teatro_politeama/"},
-    {t:"21:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",price:"15 €",link:"https://teatrodobairro.bol.pt/Comprar/Bilhetes/185029-o_casamento_de_figaro-teatro_do_bairro/"},
-    {t:"21:00",d:105,title:"Ópera-Pimba no Gelo! O Primeiro Musical no Gelo Derretido",venue:"Teatro da Comuna · Sala Nova",price:"16 €",tag:{pt:"Musical · M/12",en:"Musical · M/12"},link:"https://comunateatro.bol.pt/Comprar/Bilhetes/182829-opera_pimba_no_gelo_derretido-teatro_da_comuna/"},
     {t:"21:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/pura-loucura-107215"},
     {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"21–32 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"},
     {t:"21:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
-    {t:"21:30",d:90,title:"Happy New Lear",venue:"Teatro Cinearte (A Barraca)",price:"22 €",link:"https://www.timeout.pt/lisboa/pt/teatro/happy-new-lear"},
     {t:"21:30",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"},
     {t:"21:30",d:40,title:"Os Cegos, de Maurice Maeterlinck",venue:"CAL – Centro de Artes de Lisboa",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/os-cegos-de-maurice-maeterlinck-108016"},
     {t:"21:30",d:90,title:"T2 em Benfica por 600€!",venue:"Cine-Teatro Turim",price:"16 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/t2-em-benfica-por-600-101739"}
