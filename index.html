@@ -111,72 +111,47 @@ footer{font-size:12px;color:var(--muted)}
 
 <script>
 /* ---------- Data (refreshed daily). Text fields can be a string or {pt, en}. ---------- */
-const DAY = "2026-10-24";
-const COMPILED = "2026-10-24 15:24";
+const DAY = "2026-10-25";
+const COMPILED = "2026-10-25 15:13";
 const SHOWS = [
-  {t:"11:00",d:90,title:"Ser Diferente É Normal",venue:"Teatro Tivoli BBVA",price:"15 €",tag:{pt:"Musical · Família",en:"Musical · Family"},link:"https://www.timeout.pt/lisboa/pt/noticias/ser-diferente-e-normal-livro-de-rui-malvarez-inspira-grande-musical-infantil-no-tivoli-bbva-100126"},
-  {t:"13:00",d:140,title:"Heathers, o Musical",venue:"Auditório Camões (Liceu Camões)",price:"14–18,25 €",tag:{pt:"Musical · M/14",en:"Musical · M/14"},link:"https://www.ticketline.pt/evento/heathers-o-musical-107760"},
-  {t:"15:00",d:100,title:"Desver",venue:"Teatro Nacional D. Maria II · Salão Nobre",tag:{pt:"M/12",en:"M/12"},link:"https://tndm.bol.pt/Comprar/Bilhetes/182914-desver-teatro_nacional_d_maria_ii/Sessoes"},
-  {t:"16:00",d:90,title:"Nico e Sonhos de Papel",venue:"Museu da Marioneta",price:"7,50 €",tag:{pt:"Família · M/3",en:"Family · M/3"},link:"https://www.timeout.pt/lisboa/pt/miudos/nico-e-sonhos-de-papel"},
-  {t:"16:30",d:90,title:"TPC: Frei Luís de Sousaaa",venue:"LU.CA – Teatro Luís de Camões",price:"3–7 €",tag:{pt:"Para jovens",en:"Young audiences"},link:"https://www.timeout.pt/lisboa/pt/miudos/tpc-frei-luis-de-sousaaa"},
-  {t:"17:00",d:140,title:"Heathers, o Musical",venue:"Auditório Camões (Liceu Camões)",price:"14–18,25 €",tag:{pt:"Musical · M/14",en:"Musical · M/14"},link:"https://www.ticketline.pt/evento/heathers-o-musical-107760"},
+  {t:"11:30",d:90,title:"Nico e Sonhos de Papel",venue:"Museu da Marioneta",price:"7,50 €",last:true,tag:{pt:"Família · M/3",en:"Family · M/3"},link:"https://www.timeout.pt/lisboa/pt/miudos/nico-e-sonhos-de-papel"},
+  {t:"11:30",d:90,title:"TPC: Frei Luís de Sousaaa",venue:"LU.CA – Teatro Luís de Camões",price:"3–7 €",tag:{pt:"Para jovens",en:"Young audiences"},link:"https://www.timeout.pt/lisboa/pt/miudos/tpc-frei-luis-de-sousaaa"},
+  {t:"14:00",d:140,title:"Heathers, o Musical",venue:"Auditório Camões (Liceu Camões)",price:"14–18,25 €",tag:{pt:"Musical · M/14",en:"Musical · M/14"},link:"https://www.ticketline.pt/evento/heathers-o-musical-107760"},
+  {t:"16:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
+  {t:"16:00",d:120,title:"Em Silêncio",venue:"São Luiz Teatro Municipal · Sala Mário Viegas",price:"12 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/em-silencio/"},
+  {t:"16:00",d:80,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",last:true,tag:{pt:"Com audiodescrição",en:"Audio-described"},link:"https://teatrovariedades-capitolio.pt/evento/imitacao-dos-passaros/"},
+  {t:"16:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II · Sala Garrett",price:"10–18 €",tag:{pt:"Audiodescrição e LGP · M/12",en:"Audio description & PT Sign Language · M/12"},link:"https://www.tndm.pt/macbeth"},
+  {t:"16:30",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL · Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
+  {t:"16:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II · Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
+  {t:"16:30",d:90,title:"TPC: Frei Luís de Sousaaa",venue:"LU.CA – Teatro Luís de Camões",price:"3–7 €",last:true,tag:{pt:"Para jovens",en:"Young audiences"},link:"https://www.timeout.pt/lisboa/pt/miudos/tpc-frei-luis-de-sousaaa"},
+  {t:"17:00",d:90,title:"Ensaio sobre a Lucidez",venue:"Chapitô",price:"16,11 €",last:true,link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
+  {t:"17:00",d:90,title:"Happy New Lear",venue:"Teatro Cinearte (A Barraca)",price:"22 €",link:"https://www.timeout.pt/lisboa/pt/teatro/happy-new-lear"},
   {t:"17:00",d:120,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–50 €",tag:{pt:"Revista",en:"Revue"},link:"https://www.bol.pt/Comprar/Bilhetes/182504-mil_vezes_revista-teatro_politeama/"},
   {t:"17:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",price:"15 €",tag:{pt:"M/12",en:"M/12"},link:"https://teatrodobairro.bol.pt/Comprar/Bilhetes/185029-o_casamento_de_figaro-teatro_do_bairro/"},
-  {t:"19:00",d:90,title:"E se a Mónica",venue:"Escola de Mulheres · Clube Estefânia",tag:{pt:"Teatro e dança",en:"Theatre & dance"},link:"https://www.visitlisboa.com/pt-pt/eventos/e-se-a-monica"},
-  {t:"19:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II · Sala Garrett",price:"10–18 €",tag:{pt:"Legendado em inglês · M/12",en:"English subtitles · M/12"},link:"https://www.tndm.pt/macbeth"},
-  {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL · Estúdio",price:"11–15 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"},
-  {t:"19:30",d:120,title:"Em Silêncio",venue:"São Luiz Teatro Municipal · Sala Mário Viegas",price:"12 €",tag:{pt:"Estreia · M/14",en:"Opening night · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/em-silencio/"},
-  {t:"19:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II · Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
-  {t:"20:00",d:80,title:"Under the Shade of a Tree I Sat and Wept",venue:"São Luiz Teatro Municipal · Sala Luis Miguel Cintra",price:"12–15 €",tag:{pt:"Legendado em PT e EN · M/14",en:"PT & EN subtitles · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/under-the-shade-of-a-tree-i-sat-and-wept/"},
-  {t:"20:30",d:140,title:"Heathers, o Musical",venue:"Auditório Camões (Liceu Camões)",price:"14–18,25 €",tag:{pt:"Musical · M/14",en:"Musical · M/14"},link:"https://www.ticketline.pt/evento/heathers-o-musical-107760"},
-  {t:"21:00",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL · Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
-  {t:"21:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
-  {t:"21:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/dois-dois-105220"},
-  {t:"21:00",d:90,title:"Ensaio sobre a Lucidez",venue:"Chapitô",price:"16,11 €",link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
-  {t:"21:00",d:80,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",link:"https://teatrovariedades-capitolio.pt/evento/imitacao-dos-passaros/"},
-  {t:"21:00",d:50,title:"INTRA | A Fome Tem o Teu Nome",venue:"Espaço Laboratório",price:"16,11 €",last:true,tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/intra-a-fome-tem-o-teu-nome-107412"},
-  {t:"21:00",d:120,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–50 €",tag:{pt:"Revista",en:"Revue"},link:"https://www.bol.pt/Comprar/Bilhetes/182504-mil_vezes_revista-teatro_politeama/"},
-  {t:"21:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/pura-loucura-107215"},
-  {t:"21:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"21–32 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"},
-  {t:"21:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
-  {t:"21:30",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"},
-  {t:"21:30",d:40,title:"Os Cegos, de Maurice Maeterlinck",venue:"CAL – Centro de Artes de Lisboa",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/os-cegos-de-maurice-maeterlinck-108016"},
-  {t:"21:30",d:90,title:"T2 em Benfica por 600€!",venue:"Cine-Teatro Turim",price:"16 €",tag:{pt:"Esgotado · M/12",en:"Sold out · M/12"},link:"https://www.ticketline.pt/evento/t2-em-benfica-por-600-101739"}
+  {t:"17:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"21–32 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"},
+  {t:"17:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
+  {t:"17:00",d:90,title:"T2 em Benfica por 600€!",venue:"Cine-Teatro Turim",price:"16 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/t2-em-benfica-por-600-101739"},
+  {t:"17:30",d:80,title:"Under the Shade of a Tree I Sat and Wept",venue:"São Luiz Teatro Municipal · Sala Luis Miguel Cintra",price:"12–15 €",last:true,tag:{pt:"Legendado em PT e EN · M/14",en:"PT & EN subtitles · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/under-the-shade-of-a-tree-i-sat-and-wept/"},
+  {t:"18:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/dois-dois-105220"},
+  {t:"18:00",d:90,title:"E se a Mónica",venue:"Escola de Mulheres · Clube Estefânia",tag:{pt:"Teatro e dança",en:"Theatre & dance"},link:"https://www.visitlisboa.com/pt-pt/eventos/e-se-a-monica"},
+  {t:"18:00",d:140,title:"Heathers, o Musical",venue:"Auditório Camões (Liceu Camões)",price:"14–18,25 €",tag:{pt:"Musical · M/14",en:"Musical · M/14"},link:"https://www.ticketline.pt/evento/heathers-o-musical-107760"},
+  {t:"18:00",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"},
+  {t:"18:00",d:40,title:"Os Cegos, de Maurice Maeterlinck",venue:"CAL – Centro de Artes de Lisboa",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/os-cegos-de-maurice-maeterlinck-108016"},
+  {t:"18:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/pura-loucura-107215"},
+  {t:"19:00",d:100,title:"Desver",venue:"Teatro Nacional D. Maria II · Salão Nobre",tag:{pt:"M/12",en:"M/12"},link:"https://tndm.bol.pt/Comprar/Bilhetes/182914-desver-teatro_nacional_d_maria_ii/Sessoes"},
+  {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL · Estúdio",price:"11–15 €",last:true,tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"}
 ];
-const TBC = [];
+const TBC = [
+  {title:"Rosaline, a Ex do Romeu",venue:"Casino Lisboa · Auditório dos Oceanos",tag:{pt:"Musical · Com conversa com o público",en:"Musical · With post-show talk"},link:"https://www.ticketline.pt/evento/rosaline-a-ex-do-romeu-106734"}
+];
 const TOMORROW = {
-  day: "2026-10-25",
+  day: "2026-10-26",
   note: {
-    pt:"Domingo de despedidas: últimas sessões de Uma Casa, Com Certeza, Ensaio sobre a Lucidez, Imitação dos Pássaros (com audiodescrição), Under the Shade of a Tree I Sat and Wept, Nico e Sonhos de Papel e TPC: Frei Luís de Sousaaa. Macbeth tem audiodescrição e interpretação em LGP. Rosaline, a Ex do Romeu (Casino Lisboa) tem sessão com conversa com o público, sem hora publicada. Ópera-Pimba (Comuna) mantém canceladas as sessões até dia 25. A hora muda esta madrugada: às 2h os relógios atrasam para a 1h.",
-    en:"A Sunday of farewells: last performances of Uma Casa, Com Certeza, Ensaio sobre a Lucidez, Imitação dos Pássaros (audio-described), Under the Shade of a Tree I Sat and Wept, Nico e Sonhos de Papel and TPC: Frei Luís de Sousaaa. Macbeth has audio description and Portuguese Sign Language. Rosaline, a Ex do Romeu (Casino Lisboa) has a session with a post-show talk, time not published. Ópera-Pimba (Comuna) remains cancelled through the 25th. Clocks go back tonight: at 2am they return to 1am."
+    pt:"Segunda-feira: quase todos os teatros de Lisboa estão fechados. Cock (Teatro Maria Matos) só tem sessões às segundas e terças. A maior parte das peças regressa na quarta-feira, dia 28.",
+    en:"Monday: almost every Lisbon theatre is dark. Cock (Teatro Maria Matos) plays only on Mondays and Tuesdays. Most shows return on Wednesday the 28th."
   },
   shows: [
-    {t:"11:30",d:90,title:"Nico e Sonhos de Papel",venue:"Museu da Marioneta",price:"7,50 €",last:true,tag:{pt:"Família · M/3",en:"Family · M/3"},link:"https://www.timeout.pt/lisboa/pt/miudos/nico-e-sonhos-de-papel"},
-    {t:"11:30",d:90,title:"TPC: Frei Luís de Sousaaa",venue:"LU.CA – Teatro Luís de Camões",price:"3–7 €",tag:{pt:"Para jovens",en:"Young audiences"},link:"https://www.timeout.pt/lisboa/pt/miudos/tpc-frei-luis-de-sousaaa"},
-    {t:"14:00",d:140,title:"Heathers, o Musical",venue:"Auditório Camões (Liceu Camões)",price:"14–18,25 €",tag:{pt:"Musical · M/14",en:"Musical · M/14"},link:"https://www.ticketline.pt/evento/heathers-o-musical-107760"},
-    {t:"16:00",d:90,title:"Contos em Viagem – Goa",venue:"Teatro Meridional",price:"13 €",link:"https://www.timeout.pt/lisboa/pt/teatro/contos-em-viagem-goa"},
-    {t:"16:00",d:120,title:"Em Silêncio",venue:"São Luiz Teatro Municipal · Sala Mário Viegas",price:"12 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/em-silencio/"},
-    {t:"16:00",d:80,title:"Imitação dos Pássaros",venue:"Teatro Variedades",price:"12–17 €",last:true,tag:{pt:"Com audiodescrição",en:"Audio-described"},link:"https://teatrovariedades-capitolio.pt/evento/imitacao-dos-passaros/"},
-    {t:"16:00",d:150,title:"Macbeth",venue:"Teatro Nacional D. Maria II · Sala Garrett",price:"10–18 €",tag:{pt:"Audiodescrição e LGP · M/12",en:"Audio description & PT Sign Language · M/12"},link:"https://www.tndm.pt/macbeth"},
-    {t:"16:30",d:105,title:"Clube dos Poetas Mortos",venue:"Teatro da Trindade INATEL · Sala Carmen Dolores",price:"15–24 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/clube-dos-poetas-mortos-104026"},
-    {t:"16:30",d:60,title:"Sumário: Auto da Barca do Inferno",venue:"Teatro Nacional D. Maria II · Sala Estúdio",tag:{pt:"M/12",en:"M/12"},link:"https://www.tndm.pt/sumario-auto-da-barca-do-inferno"},
-    {t:"16:30",d:90,title:"TPC: Frei Luís de Sousaaa",venue:"LU.CA – Teatro Luís de Camões",price:"3–7 €",last:true,tag:{pt:"Para jovens",en:"Young audiences"},link:"https://www.timeout.pt/lisboa/pt/miudos/tpc-frei-luis-de-sousaaa"},
-    {t:"17:00",d:90,title:"Ensaio sobre a Lucidez",venue:"Chapitô",price:"16,11 €",last:true,link:"https://www.timeout.pt/lisboa/pt/teatro/ensaio-sobre-a-lucidez"},
-    {t:"17:00",d:90,title:"Happy New Lear",venue:"Teatro Cinearte (A Barraca)",price:"22 €",link:"https://www.timeout.pt/lisboa/pt/teatro/happy-new-lear"},
-    {t:"17:00",d:120,title:"Mil Vezes Revista",venue:"Teatro Politeama",price:"20–50 €",tag:{pt:"Revista",en:"Revue"},link:"https://www.bol.pt/Comprar/Bilhetes/182504-mil_vezes_revista-teatro_politeama/"},
-    {t:"17:00",d:130,title:"O Casamento de Fígaro",venue:"Teatro do Bairro",price:"15 €",tag:{pt:"M/12",en:"M/12"},link:"https://teatrodobairro.bol.pt/Comprar/Bilhetes/185029-o_casamento_de_figaro-teatro_do_bairro/"},
-    {t:"17:00",d:90,title:"Quando Menos Se Espera",venue:"Teatro Tivoli BBVA",price:"21–32 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/quando-menos-se-espera-106434"},
-    {t:"17:00",d:90,title:"Superstar",venue:"Teatro Armando Cortez (Casa do Artista)",price:"23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/superstar-105381"},
-    {t:"17:00",d:90,title:"T2 em Benfica por 600€!",venue:"Cine-Teatro Turim",price:"16 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/t2-em-benfica-por-600-101739"},
-    {t:"17:30",d:80,title:"Under the Shade of a Tree I Sat and Wept",venue:"São Luiz Teatro Municipal · Sala Luis Miguel Cintra",price:"12–15 €",last:true,tag:{pt:"Legendado em PT e EN · M/14",en:"PT & EN subtitles · M/14"},link:"https://www.teatrosaoluiz.pt/espetaculo/under-the-shade-of-a-tree-i-sat-and-wept/"},
-    {t:"18:00",d:90,title:"Dois + Dois",venue:"Teatro Villaret",price:"23 €",tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/dois-dois-105220"},
-    {t:"18:00",d:90,title:"E se a Mónica",venue:"Escola de Mulheres · Clube Estefânia",tag:{pt:"Teatro e dança",en:"Theatre & dance"},link:"https://www.visitlisboa.com/pt-pt/eventos/e-se-a-monica"},
-    {t:"18:00",d:140,title:"Heathers, o Musical",venue:"Auditório Camões (Liceu Camões)",price:"14–18,25 €",tag:{pt:"Musical · M/14",en:"Musical · M/14"},link:"https://www.ticketline.pt/evento/heathers-o-musical-107760"},
-    {t:"18:00",d:100,title:"O Algoritmo",venue:"Sociedade Filarmónica João Rodrigues Cordeiro",price:"28 €",tag:{pt:"Imersivo · M/16",en:"Immersive · M/16"},link:"https://www.ticketline.pt/evento/o-algoritmo-106149"},
-    {t:"18:00",d:40,title:"Os Cegos, de Maurice Maeterlinck",venue:"CAL – Centro de Artes de Lisboa",price:"12 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/os-cegos-de-maurice-maeterlinck-108016"},
-    {t:"18:00",d:90,title:"Pura Loucura",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/12",en:"M/12"},link:"https://www.ticketline.pt/evento/pura-loucura-107215"},
-    {t:"19:00",d:100,title:"Desver",venue:"Teatro Nacional D. Maria II · Salão Nobre",tag:{pt:"M/12",en:"M/12"},link:"https://tndm.bol.pt/Comprar/Bilhetes/182914-desver-teatro_nacional_d_maria_ii/Sessoes"},
-    {t:"19:00",d:80,title:"Uma Casa, Com Certeza",venue:"Teatro da Trindade INATEL · Estúdio",price:"11–15 €",last:true,tag:{pt:"M/14",en:"M/14"},link:"https://www.ticketline.pt/evento/uma-casa-com-certeza-91588"}
+    {t:"21:00",d:90,title:"Cock",venue:"Teatro Maria Matos",price:"21–23 €",tag:{pt:"M/16",en:"M/16"},link:"https://www.ticketline.pt/evento/cock-106810"}
   ]
 };
 
